@@ -119,12 +119,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="codechefJun15.h" />
+    <ClInclude Include="DP.h" />
     <ClInclude Include="hackerEarth.h" />
     <ClInclude Include="hackerSep.h" />
-    <ClInclude Include="indiaHacks.h" />
     <ClInclude Include="misc.h" />
+    <ClInclude Include="NumberTheory.h" />
     <ClInclude Include="SegTree.h" />
     <ClInclude Include="smackdown.h" />
+    <ClInclude Include="strings.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

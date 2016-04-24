@@ -12,7 +12,7 @@
 
 using namespace std;
 
-#include "hackerEarth.h"
+#include "NumberTheory.h"
 
 int main() {
 	HelpOz();
