@@ -126,6 +126,7 @@
     <ClInclude Include="NumberTheory.h" />
     <ClInclude Include="SegTree.h" />
     <ClInclude Include="smackdown.h" />
+    <ClInclude Include="STL.h" />
     <ClInclude Include="strings.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
