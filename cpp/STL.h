@@ -33,6 +33,33 @@ void stlSet(){
 	}
 }
 
+// https://www.hackerearth.com/code-monk-c-stl/algorithm/monk-and-his-friends/
+void stlSet2(){
+	int t;
+	cin >> t;
+	while (t--){
+		int n, m;
+		cin >> n >> m;
+		set<long long int> students;
+		for (int i = 0; i < n; i++){
+			long long j;
+			cin >> j;
+			students.insert(j);
+		}
+		while (m--){
+			long long int j;
+			cin >> j;
+			if (students.find(j) != students.end()){
+				cout << "YES\n";
+			}
+			else{
+				cout << "NO\n";
+			}
+			students.insert(j);
+		}
+	}
+}
+
 // https://www.hackerearth.com/problem/algorithm/monk-and-the-magical-candy-bags/
 void stlQueue(){
 	int t;

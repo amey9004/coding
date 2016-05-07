@@ -98,3 +98,74 @@ void zeros(){
 	}
 	return;
 }
+
+// https://www.hackerearth.com/problem/algorithm/circ-bear-and-vectors/
+
+class Point{
+public:
+	long long int x;
+	long long int y;
+	Point(long long int a, long long int b){
+		x = a;
+		y = b;
+	};
+	Point operator+(const Point &point) const
+	{
+		return Point(x + point.x, y + point.y);
+	}
+
+	double GetAngle(){
+		return atan2(y, x) * 180 / M_PI;
+	}
+};
+
+void vectors(){
+	int n;
+	cin >> n;
+	Point * arr = (Point *)malloc(sizeof(Point) * n);
+	double ** sum = (double **)malloc(sizeof(Point*) * n);
+	for (int i = 0; i < n; i++){
+		sum[i] = (double *)malloc(sizeof(double) * n);
+	}
+
+	for (int i = 0; i < n; i++){
+		long long int x, y;
+		cin >> x >> y;
+		Point p = Point(x, y);
+		arr[i] = p;
+	}
+
+	for (int i = 0; i < n; i++){
+		for (int j = i; j < n; j++){
+			if (i == j){
+				sum[i][j] = INT_MAX;
+			}
+			else{
+				Point sumPoint = arr[i] + arr[j];
+				if (sumPoint.x == 0 && sumPoint.y == 0){
+					sum[i][j] = INT_MAX;
+				}
+				else{
+					sum[i][j] = sumPoint.GetAngle();
+				}
+			}
+		}
+	}
+
+	long long int ans = 0;
+	for (int i = 0; i < n; i++){
+		double angle = arr[i].GetAngle();
+		for (int j = 0; j < n; j++){
+			if (i == j) continue;
+			for (int k = j + 1; k < n; k++){
+				bool diff1 = abs(abs(angle - sum[j][k]) - 90) < 0.001;
+				bool diff2 = abs(abs(angle - sum[j][k]) - 270) < 0.001;
+				if (diff1 || diff2){
+					ans = ans + 2;
+				}
+			}
+		}
+	}
+
+	cout << ans << endl;
+}
