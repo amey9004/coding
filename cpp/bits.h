@@ -54,3 +54,37 @@ void memories(){
 		cout << (1 << n) - (ans + 1) << endl;
 	}
 }
+
+// https://www.hackerearth.com/code-monk-hashing/algorithm/monk-and-tasks/
+void sorting(){
+	int t;
+	cin >> t;
+	while (t--){
+		queue<long long int> hash[64];
+		int n;
+		cin >> n;
+		while (n--){
+			long long int i, j;
+			cin >> i;
+			j = i;
+			int cnt = 0;
+			while (i > 0){
+				cnt += i & 1;
+				i = i >> 1;
+			}
+			hash[cnt].push(j);
+		}
+
+		for (int i = 0; i < 64; i++){
+			int size = hash[i].size();
+			for (int j = 0; j < size; j++){
+				long long int t = hash[i].front();
+				cout << t << " ";
+				hash[i].pop();
+			}
+		}
+
+		cout << endl;
+	}
+
+}

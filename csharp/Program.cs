@@ -6,58 +6,78 @@ using System.Threading.Tasks;
 
 namespace cdoingCSharp
 {
+
     class Program
     {
         static void Main(string[] args)
         {
-            Bts("84 o150 01101001 x73 x20 x63 x6f o165 108 01100100 00100000 01100010 01100101 o40 x74 01101000 01100101 o40 o153 x65 01111001 x20 116 x6f o40 121 x6f 117 x72 o40 o143 o150 97 x6c x6c 101 01101110 01100111 x65 x3a 00100000 01100100 69 x67 o172 01001010 71 01101000 112 01001101 50 x78 o105 o141 o123 01010010 x6b 01001101 01001000 01100100 01110101 01011000 o62 01011010 65 x5a x44 o153 o172 01100100 00110010 82 x6d o143 01100111 o75 x3d");
+            
         }
 
-        static bool IsValid(string s)
-        {
-            if (s.Contains("'")){
-                return false;
-            }
+        //public List<string> getDirectFriendsForUser(string user);
+        
+        //public List<string> getAttendedCoursesForUser(string user);
 
-            return true;
-        }
+        ///// <summary>
+        ///// Lets say each user has n friends and each person has done c courses.
+        ///// And there are total C courses which are not done by current user
+        ///// Spatial complexity
+        /////     atttendedCourses - courses attended by current user - O(c)
+        /////     newCourses - new courses which are attended by friends but not by user - O(C)
+        /////     friends/uniqueFriends (at any point only 1 variable is active)- all friend circle - O(N^2)
+        /////     answer - suggested courses for current user - O(C);
+        /////     Assuming c << C. Total space --> O(N^2) + O(C)
+        /////     
+        ///// Time complexity
+        /////     Constructing atttendedCourses -- O(c)
+        /////     creating friends list -- O(N * time of getDirectFriendsForUser) ~ O(N^2)
+        /////     creating uniqueFriends - O(N^2)
+        /////     outer for loop -- O(N^2), inner for loop O(c), lookup in newCourses O(1), inserting/incrementing newCourses O(1)
+        /////     creating answer list by sorting O(C logC)
+        /////     Total - O(N^2) + O(N^2 * c) + O(C logC)
+        ///// 
+        ///// The method makes sure that there is no collision while creating uniqueFriends or newCourses object. 
+        ///// So all lookup, insertion is in O(1)
+        ///// </summary>
+        ///// <param name="user"></param>
+        ///// <returns></returns>
+        //public List<string> getRankedCourses(string user)
+        //{
+        //    var atttendedCourses = getAttendedCoursesForUser(user).ToDictionary(c => c, c => 1);
+        //    Dictionary<string, int> newCourses = new Dictionary<string, int>();
+        //    var directFriends = getDirectFriendsForUser(user);
+        //    List<string> friends = new List<string>(directFriends);
+        //    foreach (var friend in directFriends)
+        //    {
+        //        friends.Union(getDirectFriendsForUser(friend));
+        //    }
 
-        static void Bts(string input)
-        {
-            var splits = input.Split();
-            string output =string.Empty;
-            foreach(var s in splits){
-                int num;
-                if (!int.TryParse(s, out num))
-                {
-                    if (s.StartsWith("x"))
-                    {
-                        num = Convert.ToInt16(s.Substring(1), 16);
-                    }
-                    else if (s.StartsWith("o"))
-                    {
-                        num = Convert.ToInt16(s.Substring(1), 8);
-                    }
-                }
-                else if (s.Length > 4)
-                {
-                     num = Convert.ToInt16(s, 2);
-                }
-                output = output + num + " ";
-            }
+        //    HashSet<string> uniqueFriends = new HashSet<string>(friends);
+        //    foreach (var friend in uniqueFriends)
+        //    {
+        //        var courses = getAttendedCoursesForUser(friend);
+        //        foreach (var c in courses)
+        //        {
+        //            if (atttendedCourses.ContainsKey(c))
+        //            {
+        //                // already attended
+        //                continue;
+        //            }
 
-            splits = output.Split();
-            string answer = string.Empty;
-            foreach (var s in splits)
-            {
-                if (string.IsNullOrWhiteSpace(s))
-                {
-                    continue;
-                }
-                answer += Convert.ToChar(int.Parse(s));
-            }
-        }
+        //            if (!newCourses.ContainsKey(c))
+        //            {
+        //                newCourses[c] = 0;
+        //            }
 
+        //            newCourses[c]++;
+        //        }
+        //    }
+
+        //    var answer = from pair in newCourses
+        //                 orderby pair.Value descending
+        //                 select pair.Key;
+
+        //    return answer.ToList();
+        //}
     }
 }
-

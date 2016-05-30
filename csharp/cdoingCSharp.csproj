@@ -43,11 +43,19 @@
   <ItemGroup>
     <Compile Include="BitFlip.cs" />
     <Compile Include="BitMask-CatepillarNum.cs" />
+    <Compile Include="Bts.cs" />
     <Compile Include="Design-TicTac.cs" />
+    <Compile Include="DisjointSet-CityCramper.cs" />
+    <Compile Include="DP-LinearPartition.cs" />
     <Compile Include="DP-SetOfSum.cs" />
     <Compile Include="Graph-Clusters.cs" />
+    <Compile Include="Greedy-Numbers.cs" />
+    <Compile Include="Heap-Top3.cs" />
+    <Compile Include="Impementations\Heap.cs" />
+    <Compile Include="Impementations\MinHeap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search-Temple.cs" />
     <Compile Include="SegTree-Modulo3.cs" />
     <Compile Include="Stack-Paranthesis.cs" />
   </ItemGroup>

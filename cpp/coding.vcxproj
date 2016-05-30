@@ -81,9 +81,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalOptions>/F 67108864 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalOptions>/F 67108864 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -119,7 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackTrack.h" />
+    <ClInclude Include="bits.h" />
     <ClInclude Include="codechefJun15.h" />
+    <ClInclude Include="DisjointSet.h" />
     <ClInclude Include="DP.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="hackerEarth.h" />

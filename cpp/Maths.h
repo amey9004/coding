@@ -169,3 +169,31 @@ void vectors(){
 
 	cout << ans << endl;
 }
+
+// https://www.hackerearth.com/code-monk-number-theory-i/algorithm/the-confused-monk/
+void fxPowergx(){
+	long long mod = 1000000007;
+	int n;
+	cin >> n;
+	int * arr = (int *)malloc(n * sizeof(int));
+	for (int i = 0; i < n; i++){
+		cin >> arr[i];
+	}
+
+	int gcd = GetgcdOfN(arr, n);
+	long long int  ans = 1;
+	for (int i = 0; i < n; i++){
+		int tempgcd = gcd;
+		long long a = arr[i];
+		while (tempgcd > 0){
+			if (tempgcd & 1){
+				ans = (ans * a) % mod;
+			}
+
+			a = (a * a) % mod;
+			tempgcd /= 2;
+		}
+	}
+
+	cout << ans;
+}
