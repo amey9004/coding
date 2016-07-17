@@ -10,7 +10,7 @@ namespace cdoingCSharp
     {
         // https://www.hackerearth.com/may-circuits/algorithm/booboo-and-upsolving-circuits/
 
-        static void Problem2()
+        public static void Problem2()
         {
             var splits = Console.ReadLine().Split();
             int n = int.Parse(splits[0]);

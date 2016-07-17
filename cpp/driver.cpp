@@ -16,13 +16,17 @@
 using namespace std;
 
 int main() {
+	
+}
+
+void Problem(){
 	int fn, bn;
 	cin >> fn >> bn;
 	vector<int> * child = (vector<int> *)malloc(sizeof(vector<int>) * fn);
 	long long* wealth = (long long*)malloc(sizeof(long long) * bn);
 	int * owner = (int *)malloc(sizeof(int) * fn);
-	int * ans = (int *)malloc(sizeof(int) * bn);	
-	
+	int * ans = (int *)malloc(sizeof(int) * bn);
+
 	for (int i = 1; i < fn; i++){
 		int p;
 		scanf_s("%d", &p);
@@ -31,7 +35,7 @@ int main() {
 	for (int i = 0; i < fn; i++){
 		int o;
 		scanf_s("%d", &o);
-		owner[i] = o- 1;
+		owner[i] = o - 1;
 	}
 	for (int i = 0; i < bn; i++){
 		long long t;
@@ -61,7 +65,7 @@ int main() {
 				}
 				continue;
 			}
-			
+
 			wealth[owner[current]] = wealth[owner[current]] - ((long long)x + (long long)k * d);
 			if (wealth[owner[current]] <= 0 && ans[owner[current]] == 0){
 				ans[owner[current]] = time - q;
